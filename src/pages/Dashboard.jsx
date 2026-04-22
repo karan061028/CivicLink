@@ -29,7 +29,7 @@ const timeAgo = (time) => {
   return `${Math.floor(diff / 86400)}d ago`;
 };
 
-//MARK AS READ
+
 const markAsRead = (index) => {
   setNotifications(prev =>
     prev.map((n, i) =>
@@ -100,6 +100,8 @@ setNotifications(formatted);
     ...prev
   ]);
 
+  playSound();
+  
   setShowNotif(true);
 });
 
