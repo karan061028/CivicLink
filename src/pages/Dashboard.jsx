@@ -156,54 +156,12 @@ setNotifications(formatted);
   <div className="flex-1 flex flex-col">
     <Navbar setOpenSidebar={setOpenSidebar} />
 
-        <div className="p-4 md:p-6 pb-20 md:pb-6">
+        <div className="p-4 md:p-6 ">
 
-  {/* 🔥 MOBILE UI START */}
-  <div className="md:hidden space-y-4">
-
-    {/* HEADER */}
-    <div className="flex justify-between items-center">
-      <h1 className="text-lg font-semibold">Dashboard</h1>
-
-      <button
-        onClick={() => navigate("/visitors")}
-        className="px-3 py-1 text-sm bg-green-500/20 text-green-400 rounded-lg"
-      >
-        + Add
-      </button>
-    </div>
-
-    {/* STATS SCROLL */}
-    <div className="flex gap-3 overflow-x-auto pb-2">
-      {[
-        { name: "Total", value: total },
-        { name: "Approved", value: approved },
-        { name: "Pending", value: pending },
-        { name: "Rejected", value: rejected }
-      ].map((item, i) => (
-        <div key={i} className="min-w-[120px] p-3 rounded-lg bg-white/5">
-          <p className="text-xs text-gray-400">{item.name}</p>
-          <h2 className="text-lg font-bold">{item.value}</h2>
-        </div>
-      ))}
-    </div>
-
-    {/* VISITORS */}
-    <div className="space-y-3">
-      {visitors.slice(0, 5).map(v => (
-        <div key={v._id} className="p-3 rounded-lg bg-white/5">
-          <h3 className="font-medium">{v.name}</h3>
-          <p className="text-xs text-gray-400">{v.purpose}</p>
-        </div>
-      ))}
-    </div>
-
-  </div>
-  {/* 🔥 MOBILE UI END */}
-  <div className="hidden md:block">
+  <div>
 
           <div className="flex justify-between items-center mb-6 flex-wrap gap-3">
-            <h1 className="text-xl md:text-3xl font-bold 
+            <h1 className="text-xl md:text-3xl font-bold">
             bg-gradient-to-r from-green-400 to-blue-500 
             bg-clip-text text-transparent">
               Dashboard Overview
