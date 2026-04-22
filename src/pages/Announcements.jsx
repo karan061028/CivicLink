@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 import socket from "../socket";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// const socket = io("http://localhost:5000");
 
 const Announcements = () => {
+  const [openSidebar, setOpenSidebar] = useState(false);
   const [announcements, setAnnouncements] = useState([]);
   const [open, setOpen] = useState(false);
 
@@ -34,40 +34,22 @@ const Announcements = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchAnnouncements();
-
-  //   socket.on("newAnnouncement", (data) => {
-  //     setAnnouncements((prev) => [data, ...prev]);
-  //   });
-
-  //   socket.on("deleteAnnouncement", (id) => {
-  //     setAnnouncements((prev) =>
-  //       prev.filter((a) => a._id !== id)
-  //     );
-  //   });
-
-  //   return () => {
-  //     socket.off("newAnnouncement");
-  //     socket.off("deleteAnnouncement");
-  //   };
-  // }, []);
   useEffect(() => {
     fetchAnnouncements();
 
-    // 🔥 DEBUG CONNECTION
+    //DEBUG CONNECTION
     socket.on("connect", () => {
       console.log("✅ Connected:", socket.id);
     });
 
-    // 🔥 RECEIVE NEW ANNOUNCEMENT
+    // RECEIVE NEW ANNOUNCEMENT
     socket.on("newAnnouncement", (data) => {
       console.log("🔥 RECEIVED:", data);
 
       setAnnouncements((prev) => [data, ...prev]);
     });
 
-    // 🔥 DELETE
+    //DELETE
     socket.on("deleteAnnouncement", (id) => {
       setAnnouncements((prev) =>
         prev.filter((a) => a._id !== id)
@@ -103,7 +85,7 @@ const Announcements = () => {
     }
   };
 
-  //ADD
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -125,7 +107,7 @@ const Announcements = () => {
           : null,
       });
 
-      // 🔥 INSTANT UI UPDATE (THIS FIXES YOUR ISSUE)
+      
       setAnnouncements(prev => [res.data, ...prev]);
 
       toast.success("Announcement posted 📢");
@@ -134,7 +116,7 @@ const Announcements = () => {
         title: "",
         message: "",
         type: "general",
-        eventDate: null,   // 🔥 IMPORTANT FIX
+        eventDate: null,   
         amount: "",
         isPaidRequired: false,
       });
@@ -150,10 +132,10 @@ const Announcements = () => {
 
   return (
     <div className="flex min-h-screen bg-[#020617] text-white">
-      <Sidebar />
+      <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
 
       <div className="flex-1 flex flex-col">
-        <Navbar />
+        <Navbar setOpenSidebar={setOpenSidebar} />
 
         <div className="p-6">
 

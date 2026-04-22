@@ -5,8 +5,10 @@ import API from "../services/api";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import { useState } from "react";
 
 const Complaints = () => {
+    const [openSidebar, setOpenSidebar] = useState(false);
     const [complaints, setComplaints] = useState([]);
     const [search, setSearch] = useState("");
     const [statusFilter, setStatusFilter] = useState("all");
@@ -107,7 +109,7 @@ const Complaints = () => {
 
     return (
         <div className="flex min-h-screen bg-[#020617] text-white">
-            <Sidebar />
+            <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
 
             <div className="flex-1 flex flex-col">
                 <Navbar />
@@ -245,7 +247,7 @@ const Complaints = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredComplaints.map((c) => {
 
-                            // 🔥 FIX CASE ISSUE
+                            //  FIX CASE ISSUE
                             const priority = c.priority?.toLowerCase();
                             const status = c.status?.toLowerCase();
 
@@ -259,7 +261,7 @@ const Complaints = () => {
 
                                     <div className="relative p-5 rounded-2xl bg-[#020617]/90 border border-white/10">
 
-                                        {/* 🔥 PRIORITY LINE */}
+                                        {/*  PRIORITY LINE */}
                                         <div className={`h-1 w-full mb-3 rounded-full
                       ${priority === "high"
                                                 ? "bg-red-500 shadow-[0_0_10px_red]"
