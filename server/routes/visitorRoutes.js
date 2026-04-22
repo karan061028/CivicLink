@@ -9,7 +9,7 @@ const {
 } = require("../controllers/visitorController");
 
 
-const { protect } = require("../middleware/authmiddleware");
+const { protect } = require("../middleware/authMiddleware");
 
 
 router.get("/", protect, getVisitors);
