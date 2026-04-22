@@ -7,9 +7,8 @@ import { motion } from "framer-motion";
 import socket from "../socket";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+//Annpouncement
 const Announcements = () => {
-  const [openSidebar, setOpenSidebar] = useState(false);
   const [announcements, setAnnouncements] = useState([]);
   const [open, setOpen] = useState(false);
 
@@ -132,10 +131,10 @@ const Announcements = () => {
 
   return (
     <div className="flex min-h-screen bg-[#020617] text-white">
-      <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+      <Sidebar />
 
       <div className="flex-1 flex flex-col">
-        <Navbar setOpenSidebar={setOpenSidebar} />
+        <Navbar />
 
         <div className="p-6">
 

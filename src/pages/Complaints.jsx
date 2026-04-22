@@ -5,8 +5,8 @@ import API from "../services/api";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+//complaints
 const Complaints = () => {
-    const [openSidebar, setOpenSidebar] = useState(false);
     const [complaints, setComplaints] = useState([]);
     const [search, setSearch] = useState("");
     const [statusFilter, setStatusFilter] = useState("all");
@@ -107,10 +107,10 @@ const Complaints = () => {
 
     return (
         <div className="flex min-h-screen bg-[#020617] text-white">
-            <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+            <Sidebar />
 
             <div className="flex-1 flex flex-col">
-                <Navbar setOpenSidebar={setOpenSidebar} />
+                <Navbar />
 
                 <div className="p-6">
 
