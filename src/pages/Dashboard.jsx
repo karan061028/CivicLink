@@ -144,11 +144,11 @@ setNotifications(formatted);
 
   {/* MOBILE OVERLAY */}
   {openSidebar && (
-    <div
-      className="fixed inset-0 bg-black/50 z-40 md:hidden"
-      onClick={() => setOpenSidebar(false)}
-    />
-  )}
+  <div
+    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+    onClick={() => setOpenSidebar(false)}
+  />
+)}
 
   {/* SIDEBAR */}
   <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />

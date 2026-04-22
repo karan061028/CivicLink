@@ -21,12 +21,12 @@ const Navbar = ({ setOpenSidebar }) => {
 
       <div className="flex items-center gap-3">
         <button
-          className="md:hidden text-2xl text-white"
+          className="md:hidden text-2xl text-white hover:scale-110 transition"
           onClick={() => setOpenSidebar(true)}
         >
           ☰
         </button>
-        
+
         <h2 className="text-lg font-semibold tracking-wide text-gray-200">
           Dashboard Overview
         </h2>

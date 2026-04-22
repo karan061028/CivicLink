@@ -14,17 +14,25 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
 
   return (
     <div className={`fixed top-0 left-0 h-screen w-64 
-bg-gradient-to-b from-black to-[#020617]
-border-r border-green-500/20 p-6 flex flex-col 
-shadow-[0_0_40px_rgba(34,197,94,0.2)]
-transform transition-transform duration-300 z-50
+bg-[#020617]/80 backdrop-blur-2xl
+border-r border-white/10
+p-6 flex flex-col
+shadow-[0_0_60px_rgba(34,197,94,0.15)]
+transform transition-all duration-300 ease-in-out z-50
 
-${openSidebar ? "translate-x-0" : "-translate-x-full"}
-md:translate-x-0 md:static
+${openSidebar ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}
+md:translate-x-0 md:opacity-100 md:static
 `}>
 
+      <button
+        className="md:hidden text-white text-xl mb-6 self-end"
+        onClick={() => setOpenSidebar(false)}
+      >
+        ✖
+      </button>
 
-      
+
+
       <h1 className="text-3xl font-bold mb-12 text-white">
         Civic<span className="text-green-400">Link</span>
       </h1>
@@ -39,17 +47,19 @@ md:translate-x-0 md:static
             <div
               key={index}
               onClick={() => {
-  navigate(item.path);
-  setOpenSidebar(false); // close on mobile
-}}
+                navigate(item.path);
+                setOpenSidebar(false); // close on mobile
+              }}
               className={`flex items-center gap-4 p-3 rounded-xl cursor-pointer transition-all
-              ${
-                active
+              ${active
                   ? "bg-green-500/20 text-green-400 shadow-[0_0_20px_rgba(34,197,94,0.5)] scale-105"
                   : "hover:bg-white/10 hover:scale-105"
-              }`}
+                }`}
             >
-              <Icon size={22} />
+              <Icon
+                size={22}
+                className="transition-transform duration-300 group-hover:rotate-6"
+              />
               <span className="font-medium">{item.name}</span>
             </div>
           );
