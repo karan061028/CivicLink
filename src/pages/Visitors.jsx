@@ -57,14 +57,23 @@ const Visitors = () => {
 
   return (
     <div className="flex min-h-screen bg-[#020617] text-white">
-      <Sidebar />
+
+  
+  {openSidebar && (
+    <div
+      className="fixed inset-0 bg-black/50 z-40 md:hidden"
+      onClick={() => setOpenSidebar(false)}
+    />
+  )}
+
+  <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
 
       <div className="flex-1 flex flex-col">
-        <Navbar />
+        <Navbar setOpenSidebar={setOpenSidebar} />
 
-        <div className="p-6">
+        <div className="p-6 sm:p-6">
           {/* HEADER */}
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
               Visitors Management
             </h2>
@@ -114,11 +123,10 @@ const Visitors = () => {
                           <td className="p-4 text-gray-400">{v.phone}</td>
                           <td className="p-4 text-gray-300">{v.flatNumber}</td>
                           <td className="p-4">
-                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                              v.status === 'approved' ? 'bg-green-500/20 text-green-400' :
-                              v.status === 'rejected' ? 'bg-red-500/20 text-red-400' : 
-                              'bg-yellow-500/20 text-yellow-400'
-                            }`}>
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${v.status === 'approved' ? 'bg-green-500/20 text-green-400' :
+                                v.status === 'rejected' ? 'bg-red-500/20 text-red-400' :
+                                  'bg-yellow-500/20 text-yellow-400'
+                              }`}>
                               {v.status || "pending"}
                             </span>
                           </td>
@@ -180,9 +188,9 @@ const Visitors = () => {
       </div>
 
       {open && (
-        <AddVisitorModal 
-          close={() => setOpen(false)} 
-          refresh={fetchVisitors} 
+        <AddVisitorModal
+          close={() => setOpen(false)}
+          refresh={fetchVisitors}
         />
       )}
     </div>

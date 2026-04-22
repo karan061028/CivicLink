@@ -13,10 +13,11 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-screen w-64 bg-gradient-to-b from-black to-[#020617] 
-    border-r border-green-500/20 p-6 flex flex-col shadow-[0_0_40px_rgba(34,197,94,0.2)]">
+    <div className="hidden md:flex h-screen w-64 bg-gradient-to-b from-black to-[#020617] 
+border-r border-green-500/20 p-6 flex-col shadow-[0_0_40px_rgba(34,197,94,0.2)]">
 
-      {/* 🔥 LOGO */}
+
+      
       <h1 className="text-3xl font-bold mb-12 text-white">
         Civic<span className="text-green-400">Link</span>
       </h1>
