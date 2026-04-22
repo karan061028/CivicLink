@@ -1,8 +1,11 @@
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000", {
-  transports: ["websocket", "polling"], // 🔥 add this
-  withCredentials: true,
+const socket = io("https://civiclink-c5ov.onrender.com", {
+  autoConnect: false, 
+  transports: ["websocket"], 
 });
+
+
+// socket.connect();
 
 export default socket;
