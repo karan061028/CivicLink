@@ -41,6 +41,7 @@ const markAsRead = (index) => {
   const [notifications, setNotifications] = useState([]);
   const [showNotif, setShowNotif] = useState(false);
   const [highlightId, setHighlightId] = useState(null);
+  const [openSidebar, setOpenSidebar] = useState(false);
 
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
@@ -140,9 +141,20 @@ setNotifications(formatted);
   return (
     
     <div className="flex min-h-screen bg-[#020617] text-white">
-      <Sidebar />
-      <div className="flex-1 flex flex-col">
-        <Navbar />
+
+  {/* MOBILE OVERLAY */}
+  {openSidebar && (
+    <div
+      className="fixed inset-0 bg-black/50 z-40 md:hidden"
+      onClick={() => setOpenSidebar(false)}
+    />
+  )}
+
+  {/* SIDEBAR */}
+  <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+
+  <div className="flex-1 flex flex-col">
+    <Navbar setOpenSidebar={setOpenSidebar} />
 
         <div className="p-4 md:p-6">
 

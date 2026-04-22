@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ setOpenSidebar }) => {
   const navigate = useNavigate();
 
-  // ✅ GET USER FROM LOCAL STORAGE
+
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // ✅ LOGOUT FUNCTION
+  //LOGOUT FUNCTION
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
@@ -19,10 +19,20 @@ const Navbar = () => {
     border-b border-white/10
     shadow-[0_5px_20px_rgba(0,0,0,0.4)]">
 
-      {/* LEFT */}
-      <h2 className="text-lg font-semibold tracking-wide text-gray-200">
-        Dashboard Overview
-      </h2>
+      <div className="flex items-center gap-3">
+        <button
+          className="md:hidden text-2xl text-white"
+          onClick={() => setOpenSidebar(true)}
+        >
+          ☰
+        </button>
+        
+        <h2 className="text-lg font-semibold tracking-wide text-gray-200">
+          Dashboard Overview
+        </h2>
+
+      </div>
+
 
       {/* RIGHT */}
       <div className="flex items-center gap-4">
@@ -32,7 +42,7 @@ const Navbar = () => {
 
         {/* USER */}
         <div className="flex items-center gap-3 px-3 py-1 rounded-xl bg-white/5 border border-white/10">
-          
+
           {/* PROFILE CIRCLE */}
           <div className="w-8 h-8 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center font-bold">
             {user?.name?.charAt(0) || "U"}

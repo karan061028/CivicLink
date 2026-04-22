@@ -1,7 +1,7 @@
 import { Home, Users, FileText, Bell } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ openSidebar, setOpenSidebar }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -13,8 +13,15 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="hidden md:flex h-screen w-64 bg-gradient-to-b from-black to-[#020617] 
-border-r border-green-500/20 p-6 flex-col shadow-[0_0_40px_rgba(34,197,94,0.2)]">
+    <div className={`fixed top-0 left-0 h-screen w-64 
+bg-gradient-to-b from-black to-[#020617]
+border-r border-green-500/20 p-6 flex flex-col 
+shadow-[0_0_40px_rgba(34,197,94,0.2)]
+transform transition-transform duration-300 z-50
+
+${openSidebar ? "translate-x-0" : "-translate-x-full"}
+md:translate-x-0 md:static
+`}>
 
 
       
@@ -31,7 +38,10 @@ border-r border-green-500/20 p-6 flex-col shadow-[0_0_40px_rgba(34,197,94,0.2)]"
           return (
             <div
               key={index}
-              onClick={() => navigate(item.path)}
+              onClick={() => {
+  navigate(item.path);
+  setOpenSidebar(false); // close on mobile
+}}
               className={`flex items-center gap-4 p-3 rounded-xl cursor-pointer transition-all
               ${
                 active
