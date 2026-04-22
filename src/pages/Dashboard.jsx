@@ -394,17 +394,21 @@ setNotifications(formatted);
           </span>
 
         </div>
-      </motion.div>
+                </motion.div>
     ))}
-    </div>
+  </div>   
 
-  </div>
-</div>
-</div>
-        </div>
-      </div>
-    </div>
-  );
+</div>     
+
+</div>     
+
+</div>     
+
+</div>     
+
+</div>     
+
+);
 };
 
 export default Dashboard;
