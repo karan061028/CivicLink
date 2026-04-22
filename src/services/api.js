@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://civiclink-c5ov.onrender.com/api",
 });
 
-// 🔥 ADD THIS INTERCEPTOR
+
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
 

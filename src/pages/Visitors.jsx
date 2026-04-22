@@ -6,7 +6,7 @@ import AddVisitorModal from "../components/AddVisitorModal";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000", {
+const socket = io("https://civiclink-c5ov.onrender.com", {
   transports: ["websocket"],
 });
 
