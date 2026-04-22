@@ -101,7 +101,7 @@ setNotifications(formatted);
   ]);
 
   playSound();
-
+  
   setShowNotif(true);
 });
 
@@ -140,19 +140,9 @@ setNotifications(formatted);
   return (
     
     <div className="flex min-h-screen bg-[#020617] text-white">
-
-  {/* BACKDROP (mobile only) */}
-  {openSidebar && (
-    <div
-      className="fixed inset-0 bg-black/50 z-40 md:hidden"
-      onClick={() => setOpenSidebar(false)}
-    />
-  )}
-
-  <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
       <Sidebar />
       <div className="flex-1 flex flex-col">
-        <Navbar setOpenSidebar={setOpenSidebar} />
+        <Navbar />
 
         <div className="p-4 md:p-6">
 
@@ -260,7 +250,7 @@ setNotifications(formatted);
 
           
           {/* STATS */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
   {[
     { label: "Total", value: total, color: "from-blue-400 to-cyan-500" },
     { label: "Approved", value: approved, color: "from-green-400 to-emerald-500" },
@@ -360,3 +350,4 @@ setNotifications(formatted);
 };
 
 export default Dashboard;
+// dashboard
