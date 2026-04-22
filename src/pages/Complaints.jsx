@@ -5,8 +5,6 @@ import API from "../services/api";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import { useState } from "react";
-
 const Complaints = () => {
     const [openSidebar, setOpenSidebar] = useState(false);
     const [complaints, setComplaints] = useState([]);
@@ -112,7 +110,7 @@ const Complaints = () => {
             <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
 
             <div className="flex-1 flex flex-col">
-                <Navbar />
+                <Navbar setOpenSidebar={setOpenSidebar} />
 
                 <div className="p-6">
 
