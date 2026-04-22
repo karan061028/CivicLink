@@ -14,7 +14,7 @@ const Navbar = ({ setOpenSidebar }) => {
   };
 
   return (
-    <div className="h-16 flex items-center justify-between px-6
+    <div className="h-16 flex items-center justify-between px-4 md:px-6
     bg-[#020617]/80 backdrop-blur-xl
     border-b border-white/10
     shadow-[0_5px_20px_rgba(0,0,0,0.4)]">

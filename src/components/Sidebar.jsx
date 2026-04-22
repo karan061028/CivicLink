@@ -13,7 +13,7 @@ const Sidebar = ({ openSidebar, setOpenSidebar }) => {
   ];
 
   return (
-    <div className={`fixed top-0 left-0 h-screen w-64 
+    <div className={`fixed top-0 left-0 h-screen w-[80%] md:w-64
 bg-[#020617]/80 backdrop-blur-2xl
 border-r border-white/10
 p-6 flex flex-col

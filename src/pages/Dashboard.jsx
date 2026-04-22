@@ -159,7 +159,7 @@ setNotifications(formatted);
         <div className="p-4 md:p-6">
 
           <div className="flex justify-between items-center mb-6 flex-wrap gap-3">
-            <h1 className="text-2xl md:text-3xl font-bold 
+            <h1 className="text-xl md:text-3xl font-bold 
             bg-gradient-to-r from-green-400 to-blue-500 
             bg-clip-text text-transparent">
               Dashboard Overview
@@ -262,7 +262,7 @@ setNotifications(formatted);
 
           
           {/* STATS */}
-<div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
   {[
     { label: "Total", value: total, color: "from-blue-400 to-cyan-500" },
     { label: "Approved", value: approved, color: "from-green-400 to-emerald-500" },
@@ -290,7 +290,7 @@ setNotifications(formatted);
 <div className="mb-10">
   <h2 className="text-lg md:text-xl mb-3 text-gray-300">Analytics</h2>
 
-  <div className="w-full h-[300px] min-h-[300px]">
+  <div className="w-full h-[300px] min-h-[350px]">
     <div className="w-full h-full bg-white/5 rounded-2xl p-4 border border-white/10">
 
       <ResponsiveContainer width="100%" height="100%">
