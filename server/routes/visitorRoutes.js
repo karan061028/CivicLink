@@ -8,22 +8,22 @@ const {
   deleteVisitor,
 } = require("../controllers/visitorController");
 
-// 🔥 IMPORT THIS
-const { protect } = require("../middleware/authMiddleware");
 
-// ✅ GET ALL VISITORS (FIXED)
+const { protect } = require("../middleware/authmiddleware");
+
+
 router.get("/", protect, getVisitors);
 
-// ✅ ADD VISITOR
+//ADD VISITOR
 router.post("/", protect, addVisitor);
 
-// ✅ UPDATE STATUS
+//UPDATE STATUS
 router.put("/:id", protect, updateVisitor);
 
-// ✅ EXIT VISITOR
+//EXIT VISITOR
 router.put("/exit/:id", protect, exitVisitor);
 
-// ✅ DELETE
+//DELETE
 router.delete("/:id", protect, deleteVisitor);
 
 module.exports = router;
