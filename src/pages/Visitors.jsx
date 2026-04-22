@@ -4,11 +4,11 @@ import Navbar from "../components/Navbar";
 import API from "../services/api";
 import AddVisitorModal from "../components/AddVisitorModal";
 import toast from "react-hot-toast";
-import { io } from "socket.io-client";
-// import socket from "../socket";
-const socket = io("https://civiclink-c5ov.onrender.com", {
-  transports: ["websocket"],
-});
+// import { io } from "socket.io-client";
+import socket from "../socket";
+// const socket = io("https://civiclink-c5ov.onrender.com", {
+//   transports: ["websocket"],
+// });
 
 const Visitors = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
