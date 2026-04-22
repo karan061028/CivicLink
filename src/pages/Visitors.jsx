@@ -4,14 +4,13 @@ import Navbar from "../components/Navbar";
 import API from "../services/api";
 import AddVisitorModal from "../components/AddVisitorModal";
 import toast from "react-hot-toast";
-// import { io } from "socket.io-client";
-import socket from "../socket";
-// const socket = io("https://civiclink-c5ov.onrender.com", {
-//   transports: ["websocket"],
-// });
+import { io } from "socket.io-client";
 
+const socket = io("https://civiclink-c5ov.onrender.com", {
+  transports: ["websocket"],
+});
+//visitors
 const Visitors = () => {
-  const [openSidebar, setOpenSidebar] = useState(false);
   const [visitors, setVisitors] = useState([]);
   const [open, setOpen] = useState(false);
   const [expandedRow, setExpandedRow] = useState(null);
@@ -58,19 +57,10 @@ const Visitors = () => {
 
   return (
     <div className="flex min-h-screen bg-[#020617] text-white">
-
-  
-  {openSidebar && (
-    <div
-      className="fixed inset-0 bg-black/50 z-40 md:hidden"
-      onClick={() => setOpenSidebar(false)}
-    />
-  )}
-
-  <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
+      <Sidebar />
 
       <div className="flex-1 flex flex-col">
-        <Navbar setOpenSidebar={setOpenSidebar} />
+        <Navbar />
 
         <div className="p-6 sm:p-6">
           {/* HEADER */}
